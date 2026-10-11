@@ -1,0 +1,488 @@
+
+/* Global styles */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #17264a;
+  background: #ffffff;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+.app {
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* Navigation */
+.navbar {
+  min-height: 76px;
+  padding: 0 7%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #ffffff;
+  border-bottom: 1px solid #edf0f7;
+}
+
+.brand-name {
+  color: #192747;
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: -0.8px;
+}
+
+.accent {
+  color: #6554ed;
+}
+
+.nav-active {
+  color: #6252eb;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* Hero section */
+.hero {
+  min-height: 590px;
+  padding: 70px 7%;
+  display: grid;
+  grid-template-columns: 1fr 0.9fr;
+  align-items: center;
+  gap: 7%;
+  background:
+    radial-gradient(ellipse at 8% 15%, #eaf2ff 0%, transparent 48%),
+    radial-gradient(ellipse at 95% 85%, #f0edff 0%, transparent 40%),
+    #fbfcff;
+}
+
+/* Hero text */
+.hero-content {
+  max-width: 570px;
+}
+
+.eyebrow {
+  display: inline-block;
+  color: #5c51e8;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  line-height: 1.8;
+}
+
+.hero-content h1 {
+  margin: 24px 0 20px;
+  color: #14234b;
+  font-size: clamp(36px, 4vw, 54px);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -1.8px;
+}
+
+.gradient-text {
+  color: #6252eb;
+  background: linear-gradient(100deg, #2879fa, #7d35db);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.description {
+  max-width: 480px;
+  margin: 0;
+  color: #687693;
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+/* Benefits */
+.benefits {
+  display: grid;
+  gap: 17px;
+  margin: 28px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.benefits li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  color: #465675;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.benefit-check {
+  display: inline-grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 21px;
+  height: 21px;
+  border-radius: 50%;
+  background: #e2f8f0;
+  color: #07966e;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+/* Upload card */
+.upload-card {
+  width: 100%;
+  max-width: 490px;
+  justify-self: end;
+  padding: 30px;
+  border: 1px solid #edf0f8;
+  border-radius: 20px;
+  background: #ffffff;
+  box-shadow: 0 20px 55px rgba(37, 61, 120, 0.08);
+}
+
+.card-heading {
+  margin-bottom: 25px;
+}
+
+.card-heading h2 {
+  margin: 0 0 10px;
+  color: #17264a;
+  font-size: 21px;
+  font-weight: 700;
+}
+
+.card-heading p {
+  margin: 0;
+  color: #687693;
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+/* File upload area */
+.drop-zone {
+  min-height: 240px;
+  padding: 25px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 13px;
+  border: 1.5px dashed #cbd7f4;
+  border-radius: 13px;
+  background: #fcfdff;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.drop-zone:hover {
+  border-color: #7770ef;
+  background: #f8f8ff;
+}
+
+.drop-zone strong {
+  max-width: 100%;
+  color: #425476;
+  font-size: 13px;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.drop-zone > span {
+  color: #8994ab;
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+/* Hide native input to avoid duplicate Choose File buttons */
+.hidden-file-input {
+  display: none;
+}
+
+/* Selected file */
+.file-symbol {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 50px;
+  border-radius: 8px;
+  background: #edf2ff;
+  color: #4969ec;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.drop-zone .filename {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  line-height: 1.6;
+}
+
+/* Choose file button */
+.choose-file {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 43px;
+  padding: 0 30px;
+  border-radius: 8px;
+  background: linear-gradient(100deg, #3769f5, #5d4cf0);
+  color: #ffffff !important;
+  font-size: 13px !important;
+  font-weight: 600;
+  transition: transform 0.2s;
+}
+
+.drop-zone:hover .choose-file {
+  transform: translateY(-1px);
+}
+
+.drop-zone .file-hint {
+  margin-top: 2px;
+  color: #7b88a4;
+  font-size: 11px;
+}
+
+/* Remove file button */
+.remove-file {
+  display: block;
+  margin: 12px auto 0;
+  padding: 7px;
+  border: none;
+  background: transparent;
+  color: #6252eb;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.remove-file:hover:not(:disabled) {
+  text-decoration: underline;
+}
+
+.remove-file:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Generate button */
+.generate-button {
+  width: 100%;
+  min-height: 51px;
+  margin-top: 22px;
+  padding: 13px 18px;
+  border: none;
+  border-radius: 9px;
+  background: linear-gradient(100deg, #3769f5, #6547ec);
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.generate-button:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(86, 82, 230, 0.2);
+}
+
+.generate-button:disabled {
+  background: #d5e0fa;
+  color: #7185ba;
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
+/* Status message colors */
+.message {
+  margin: 15px 0 0;
+  font-size: 12px;
+  line-height: 1.7;
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+
+/* Blue: processing and information */
+.message.info {
+  color: #3269d9;
+}
+
+/* Green: successful generation */
+.message.success {
+  color: #078761;
+}
+
+/* Red: errors only */
+.message.error {
+  color: #c34252;
+}
+
+/* Results section */
+.results {
+  max-width: 950px;
+  margin: 0 auto;
+  padding: 55px 25px 70px;
+}
+
+.results h2 {
+  margin: 12px 0 25px;
+  color: #17264a;
+  font-size: 26px;
+  line-height: 1.4;
+}
+
+/* Question list */
+.question-list {
+  overflow: hidden;
+  border: 1px solid #e8ecf5;
+  border-radius: 13px;
+  background: #ffffff;
+  box-shadow: 0 8px 25px rgba(37, 61, 120, 0.04);
+}
+
+.question-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 19px 20px;
+  border-bottom: 1px solid #edf0f7;
+}
+
+.question-item:last-child {
+  border-bottom: none;
+}
+
+/* Number only the actual questions */
+.question-number {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 35px;
+  min-height: 35px;
+  border-radius: 10px;
+  background: #f0efff;
+  color: #6254eb;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.question-item p {
+  flex: 1;
+  margin: 5px 0 0;
+  color: #45536f;
+  font-size: 13px;
+  line-height: 1.8;
+  overflow-wrap: anywhere;
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr 0.95fr;
+    gap: 4%;
+    padding: 55px 5%;
+  }
+
+  .hero-content h1 {
+    font-size: clamp(32px, 4.5vw, 44px);
+    letter-spacing: -1.3px;
+  }
+
+  .upload-card {
+    padding: 23px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 700px) {
+  .navbar {
+    min-height: 70px;
+    padding: 0 5%;
+  }
+
+  .brand-name {
+    font-size: 21px;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 38px;
+    padding: 45px 5%;
+  }
+
+  .hero-content {
+    max-width: 100%;
+  }
+
+  .hero-content h1 {
+    margin-top: 20px;
+    font-size: clamp(35px, 8vw, 47px);
+    letter-spacing: -1px;
+  }
+
+  .description {
+    font-size: 13px;
+  }
+
+  .upload-card {
+    max-width: 100%;
+    justify-self: stretch;
+    padding: 22px;
+  }
+
+  .drop-zone {
+    min-height: 220px;
+  }
+
+  .results {
+    padding: 40px 5% 50px;
+  }
+
+  .results h2 {
+    font-size: 23px;
+  }
+
+  .question-item {
+    gap: 12px;
+    padding: 16px 13px;
+  }
+
+  .question-number {
+    width: 31px;
+    min-height: 31px;
+  }
+}
+
+/* Small mobile screens */
+@media (max-width: 380px) {
+  .hero-content h1 {
+    font-size: 32px;
+  }
+
+  .upload-card {
+    padding: 16px;
+  }
+
+  .card-heading h2 {
+    font-size: 19px;
+  }
+
+  .choose-file {
+    padding: 0 24px;
+  }
+
+  .question-item {
+    gap: 9px;
+    padding: 14px 10px;
+  }
+}
